@@ -107,31 +107,27 @@ class Main extends Component {
 							<Grid.Row>
 
 								
-								<Segment >
-									<Grid columns={1} divided>
-										<Grid.Column>
-											<Label size="massive" basic>
+								<Segment style={{backgroundColor:'#1C2127',marginLeft:'80px', border:'#53BBD6 2px solid', width:'85%', textAlign:'center'}}>
+									
+											<h1 style={{color:'white', textAlign:'center'}} >
 												MODE
 												SELECTION
-									</Label>
+									</h1>
 											<br />
-											<br />
-											<br />
-											<br />
-											<Label size="massive" basic>
+											
+											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(-20px,-10px'}}>
 												Manual
-									</Label>
-											<Radio
+									</label>
+											<Radio style={{fontSize:"25px",border:'#53BBD6 2px solid',borderRadius:'30px',height:'25px',width:'55px' }}
 												size="massive" basic
 												toggle
 												checked={this.state.installationMode}
 												onChange={() => this.toggleInstallationMode()}
 											></Radio>
-											<Label size="massive" basic>
+											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(15px,-15px'}} >
 												Automatic
-									</Label>
-										</Grid.Column>
-										<Grid.Column>
+									</label>
+										
 											<Container>
 												<Label size="medium" basic>
 													MANUAL OPERATION
@@ -337,8 +333,7 @@ class Main extends Component {
 												</text>
 												<br />
 											</Container>
-										</Grid.Column>
-									</Grid>
+										
 								</Segment>
 							</Grid.Row>
 						</Grid.Column>
