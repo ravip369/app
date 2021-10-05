@@ -86,26 +86,28 @@ class Main extends Component {
 		const { scale, translation } = this.state;
 		if (this.state.homepage)
 			return (
-				<div>
-					<Container fluid>
-						<Image.Group size="tiny">
-							<Image floated="left" src={process.env.PUBLIC_URL + 'tetrahedron_logo.png'} />;
-						<Image floated="right" src={process.env.PUBLIC_URL + 'iitr_logo.png'} />;
-					</Image.Group>
-					</Container>
-					<Grid columns={2} divided stackable>
-						<Grid.Column>
-							<Grid.Row>
-
-								<Segment raised>
+				<div style={{backgroundColor:'#252E35',}}>
+					{/* segment is to define map and its style outside the grid */}
+					<Segment style={{background:'#252E35', marginLeft:'50px', width:'95%', color:'white'}}>
 									<MapInteractionCSS
 										scale={scale}
 										translation={translation}
 										onChange={({ scale, translation }) => this.setState({ scale, translation })}>
-										<div id={this.props.id} />
+										<div id={this.props.id} 
+										/>
 									</MapInteractionCSS>
 								</Segment>
-								<Segment raised>
+					{/* issue: the black screen is not occupying full space and not right......... there is a thing named react map interaction which will help */}
+
+
+
+
+					<Grid columns={2} divided stackable>
+						<Grid.Column>
+							<Grid.Row>
+
+								
+								<Segment >
 									<Grid columns={1} divided>
 										<Grid.Column>
 											<Label size="massive" basic>
