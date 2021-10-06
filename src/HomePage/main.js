@@ -6,6 +6,8 @@ import ROS2D from './vendor/ros2d.js'
 import PropTypes from 'prop-types';
 import { MapInteractionCSS } from 'react-map-interaction';
 import { history } from '../_helpers/history';
+
+import modeSelection from './Components/modeSelection.js';
 const fetch = require('node-fetch');
 
 class Main extends Component {
@@ -88,7 +90,7 @@ class Main extends Component {
 			return (
 				<div style={{backgroundColor:'#252E35',}}>
 					{/* segment is to define map and its style outside the grid */}
-					<Segment style={{background:'#252E35', marginLeft:'50px', width:'95%', color:'white'}}>
+					<Segment style={{background:'#252E35', marginLeft:'230px', width:'65%',height:'400px', color:'white'}}>
 									<MapInteractionCSS
 										scale={scale}
 										translation={translation}
@@ -102,20 +104,20 @@ class Main extends Component {
 
 
 
-					<Grid columns={2} divided stackable>
-						<Grid.Column>
-							<Grid.Row>
+					<Grid columns={3} divided stackable>
+						<Grid.Column width={6}>
+							{/* <Grid.Row> */}
 
-								
+
 								<Segment style={{backgroundColor:'#1C2127',marginLeft:'80px', border:'#53BBD6 2px solid', width:'85%', textAlign:'center'}}>
 									
-											<h1 style={{color:'white', textAlign:'center'}} >
+											<h2 style={{color:'white', textAlign:'center', marginTop:'10px'}} >
 												MODE
 												SELECTION
-									</h1>
+									</h2>
 											<br />
 											
-											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(-20px,-10px'}}>
+											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(-20px,-8px'}}>
 												Manual
 									</label>
 											<Radio style={{fontSize:"25px",border:'#53BBD6 2px solid',borderRadius:'30px',height:'25px',width:'55px' }}
@@ -124,220 +126,20 @@ class Main extends Component {
 												checked={this.state.installationMode}
 												onChange={() => this.toggleInstallationMode()}
 											></Radio>
-											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(15px,-15px'}} >
+											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(15px,-10px'}} >
 												Automatic
 									</label>
 										
-											<Container>
-												<Label size="medium" basic>
-													MANUAL OPERATION
-										</Label>
-											</Container>
-											<br />
-											<Container>
-												<text>
-													
-												</text>
-												<Button
-													color='green'
-													disabled={!this.state.active || this.state.installationMode}
-													onClick={function () {
-														// Publishing a Topic
-														// ------------------
-														console.log("Forward");
-														var cmdVel = new ROSLIB.Topic({
-															ros: ros,
-															name: 'cmd_vel_mux/input/teleop',
-															messageType: 'geometry_msgs/Twist'
-														});
-
-														var twist = new ROSLIB.Message({
-															linear: {
-																x: 0.3,
-																y: 0,
-																z: 0
-															},
-															angular: {
-																x: 0,
-																y: 0,
-																z: 0
-															}
-														});
-														cmdVel.publish(twist);
-
-
-
-													}}
-
-												>
-													<Icon
-														name="arrow up"
-														size="big"
-													></Icon>
-												</Button>	<text>
-													
-												</text>
-												
-												<Button
-													color='green'
-													disabled={!this.state.active || this.state.installationMode}
-													onClick={function () {
-														// Publishing a Topic
-														// ------------------
-
-														var cmdVel = new ROSLIB.Topic({
-															ros: ros,
-															name: 'cmd_vel_mux/input/teleop',
-															messageType: 'geometry_msgs/Twist'
-														});
-
-														var twist = new ROSLIB.Message({
-															linear: {
-																x: 0,
-																y: 0,
-																z: 0
-															},
-															angular: {
-																x: 0,
-																y: 0,
-																z: 0.2
-															}
-														});
-														cmdVel.publish(twist);
-													}}
-												>
-													<Icon
-														name="undo"
-														size="big"
-
-													></Icon>
-												</Button>
-												<Button
-													color='red'
-													disabled={!this.state.active || this.state.installationMode}
-													onClick={function () {
-														// Publishing a Topic
-														// ------------------
-
-														var cmdVel = new ROSLIB.Topic({
-															ros: ros,
-															name: 'cmd_vel_mux/input/teleop',
-															messageType: 'geometry_msgs/Twist'
-														});
-
-														var twist = new ROSLIB.Message({
-															linear: {
-																x: 0,
-																y: 0,
-																z: 0
-															},
-															angular: {
-																x: 0,
-																y: 0,
-																z: 0
-															}
-														});
-														cmdVel.publish(twist);
-
-
-													}}
-												>
-													<Icon name="stop"
-
-
-
-														size='big'></Icon>
-												</Button>
-
-												<Button
-													color='green'
-													disabled={!this.state.active || this.state.installationMode}
-													onClick={function () {
-														// Publishing a Topic
-														// ------------------
-
-														var cmdVel = new ROSLIB.Topic({
-															ros: ros,
-															name: '/cmd_vel_mux/input/teleop',
-															messageType: 'geometry_msgs/Twist'
-														});
-
-														var twist = new ROSLIB.Message({
-															linear: {
-																x: 0,
-																y: 0,
-																z: 0
-															},
-															angular: {
-																x: 0,
-																y: 0,
-																z: -0.2
-															}
-														});
-														cmdVel.publish(twist);
-
-
-
-													}}
-
-												>
-													<Icon
-														name="redo"
-														size="big"
-
-
-													></Icon>
-												</Button>
-												
-												<text>
-													
-												</text>
-												<Button
-													color='green'
-													disabled={!this.state.active || this.state.installationMode}
-													onClick={function () {
-														// Publishing a Topic
-														// ------------------
-
-														var cmdVel = new ROSLIB.Topic({
-															ros: ros,
-															name: 'cmd_vel_mux/input/teleop',
-															messageType: 'geometry_msgs/Twist'
-														});
-
-														var twist = new ROSLIB.Message({
-															linear: {
-																x: -0.3,
-																y: 0,
-																z: 0
-															},
-															angular: {
-																x: 0,
-																y: 0,
-																z: 0
-															}
-														});
-														cmdVel.publish(twist);
-
-
-
-													}}
-												>
-													<Icon
-														name="arrow down"
-														size="big"
-													></Icon>
-												</Button>
-												<text>
-													
-												</text>
-												<br />
-											</Container>
+											
 										
 								</Segment>
-							</Grid.Row>
+								
+								
+							{/* </Grid.Row> */}
 						</Grid.Column>
-						<Grid.Column>
+						
+						
+						<Grid.Column width={4}>
 							<Segment raised>
 								<Container textAlign="center">
 									<Label color="red" size='massive' pointing="below" basic>
@@ -455,6 +257,241 @@ class Main extends Component {
 								</Container>
 							</Segment>
 						</Grid.Column>
+						<Grid.Column width={6}>
+						<Segment style={{backgroundColor:'#1C2127',marginRight:'80px', border:'#53BBD6 2px solid', width:'85%', textAlign:'center',floated:'right', height:'150px'}} >
+								<Container>
+												<h2 style={{color:'white', textAlign:'center'}}>
+													MANUAL OPERATION
+										</h2>
+											</Container>
+											<br />
+											<Container>
+												<text>
+													
+												</text>
+												<Button
+													color='green'
+													// style={{width:'40px'}}
+													size='small'
+													disabled={!this.state.active || this.state.installationMode}
+													onClick={function () {
+														// Publishing a Topic
+														// ------------------
+														console.log("Forward");
+														var cmdVel = new ROSLIB.Topic({
+															ros: ros,
+															name: 'cmd_vel_mux/input/teleop',
+															messageType: 'geometry_msgs/Twist'
+														});
+
+														var twist = new ROSLIB.Message({
+															linear: {
+																x: 0.3,
+																y: 0,
+																z: 0
+															},
+															angular: {
+																x: 0,
+																y: 0,
+																z: 0
+															}
+														});
+														cmdVel.publish(twist);
+
+
+
+													}}
+
+												>
+													<Icon
+														name="arrow up"
+														size="large"
+													></Icon>
+												</Button>	<text>
+													
+												</text>
+												
+												<Button
+													color='green'
+													size='small'
+													disabled={!this.state.active || this.state.installationMode}
+													onClick={function () {
+														// Publishing a Topic
+														// ------------------
+
+														var cmdVel = new ROSLIB.Topic({
+															ros: ros,
+															name: 'cmd_vel_mux/input/teleop',
+															messageType: 'geometry_msgs/Twist'
+														});
+
+														var twist = new ROSLIB.Message({
+															linear: {
+																x: 0,
+																y: 0,
+																z: 0
+															},
+															angular: {
+																x: 0,
+																y: 0,
+																z: 0.2
+															}
+														});
+														cmdVel.publish(twist);
+													}}
+												>
+													<Icon
+														name="undo"
+														size="large"
+
+													></Icon>
+												</Button>
+												<Button
+													color='red'
+													size='small'
+													disabled={!this.state.active || this.state.installationMode}
+													onClick={function () {
+														// Publishing a Topic
+														// ------------------
+
+														var cmdVel = new ROSLIB.Topic({
+															ros: ros,
+															name: 'cmd_vel_mux/input/teleop',
+															messageType: 'geometry_msgs/Twist'
+														});
+
+														var twist = new ROSLIB.Message({
+															linear: {
+																x: 0,
+																y: 0,
+																z: 0
+															},
+															angular: {
+																x: 0,
+																y: 0,
+																z: 0
+															}
+														});
+														cmdVel.publish(twist);
+
+
+													}}
+												>
+													<Icon name="stop"
+
+
+
+														size='large'></Icon>
+												</Button>
+
+												<Button
+													color='green'
+													size='small'
+													disabled={!this.state.active || this.state.installationMode}
+													onClick={function () {
+														// Publishing a Topic
+														// ------------------
+
+														var cmdVel = new ROSLIB.Topic({
+															ros: ros,
+															name: '/cmd_vel_mux/input/teleop',
+															messageType: 'geometry_msgs/Twist'
+														});
+
+														var twist = new ROSLIB.Message({
+															linear: {
+																x: 0,
+																y: 0,
+																z: 0
+															},
+															angular: {
+																x: 0,
+																y: 0,
+																z: -0.2
+															}
+														});
+														cmdVel.publish(twist);
+
+
+
+													}}
+
+												>
+													<Icon
+														name="redo"
+														size="large"
+
+
+													></Icon>
+												</Button>
+												
+												<text>
+													
+												</text>
+												<Button
+													color='green'
+													size='small'
+													disabled={!this.state.active || this.state.installationMode}
+													onClick={function () {
+														// Publishing a Topic
+														// ------------------
+
+														var cmdVel = new ROSLIB.Topic({
+															ros: ros,
+															name: 'cmd_vel_mux/input/teleop',
+															messageType: 'geometry_msgs/Twist'
+														});
+
+														var twist = new ROSLIB.Message({
+															linear: {
+																x: -0.3,
+																y: 0,
+																z: 0
+															},
+															angular: {
+																x: 0,
+																y: 0,
+																z: 0
+															}
+														});
+														cmdVel.publish(twist);
+
+
+
+													}}
+												>
+													<Icon
+														name="arrow down"
+														size="large"
+													></Icon>
+												</Button>
+												<text>
+													
+												</text>
+												<br />
+											</Container>
+							</Segment>
+
+						</Grid.Column>
+					</Grid>
+					<Grid style={{color:'white'}} container spacing={2} columns={3}>
+					  <Grid.Column style={{background:'blue'}} item xs={8}>
+						  <Grid columns={3}>
+							  <Grid.Column>ee</Grid.Column>
+							  <Grid.Column>ee</Grid.Column>
+							  <Grid.Column>ee</Grid.Column>
+						  </Grid>
+					    xs=8
+ 					 </Grid.Column>
+					  <Grid.Column item xs={4}>
+ 					   xs=4
+ 					 </Grid.Column>
+ 					 <Grid.Column item xs={4}>
+ 					   xs=4
+ 					 </Grid.Column>
+					  <Grid.Column item xs={8}>
+					    xs=8
+					  </Grid.Column>
 					</Grid>
 				</div>
 			);
