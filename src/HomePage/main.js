@@ -104,7 +104,7 @@ class Main extends Component {
 
 
 
-					<Grid columns={3} divided stackable>
+					<Grid columns={3} divided stackable style={{transform:'translate(0,-0px)'}}>
 						<Grid.Column width={6}>
 							{/* <Grid.Row> */}
 
@@ -140,8 +140,8 @@ class Main extends Component {
 								</Label>
 								</Container> */}
 								<Container textAlign='center'>
-									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'80px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'45%', height:'50px' }}>
-										Battery Status: {this.state.SOC}
+									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'80px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'50%', height:'50px' }}>
+										Battery Status: {this.state.SOC} %
 								</Label>
 								{/* <br/> */}
 									{/* <br />
@@ -157,7 +157,7 @@ class Main extends Component {
 									<Label size='big' basic>
 										Battery Balancing: {this.state.batteryBalancing}
 								</Label> */}
-									<Button style={{backgroundColor:'#252E35',marginLeft:'210px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', width:'20%',padding:'0', height:'30px', marginTop:'15px' }}
+									<Button style={{backgroundColor:'#252E35',marginLeft:'235px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', width:'20%',padding:'0', height:'30px', marginTop:'15px' }}
 									
 									onClick={() => {
 										
@@ -179,7 +179,7 @@ class Main extends Component {
 										inverted color="red"
 										toggle
 										size="big"
-										style={{marginLeft:'25%', marginTop:'20%'}}
+										style={{marginLeft:'0%', marginTop:'15%'}}
 										onClick={function () {
 											// Publishing a Topic
 											// ------------------
@@ -215,24 +215,20 @@ class Main extends Component {
 									>Emergency Stop
 								</Button>
 								
-							<Segment raised>
-								<Container textAlign="center">
-									<Label color="blue" size="massive" pointing="below" basic>
-										AGV DATA
-								</Label>
-								</Container>
+							
+								
 								<Container textAlign='center'>
-									<Label size='big' basic>
+									<Label size='large' basic style={{backgroundColor:'#252E35',marginTop:'50px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'45%', height:'45px',padding:'10px' }}>
 										Speed: {this.state.TDT}
 								</Label>
 									<br />
 									<br />
-									<Label size='big' basic>
+									<Label size='big' basic style={{backgroundColor:'#252E35',marginTop:'5px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'85%', height:'45px',padding:'10px' }}>
 										Distance Travelled: {this.state.SOC2}
 								</Label>
 
 								</Container>
-							</Segment>
+						
 							
 							
 						</Grid.Column>

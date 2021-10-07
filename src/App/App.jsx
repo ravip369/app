@@ -35,7 +35,7 @@ class App extends React.Component {
             <Router history={history}>
                 <div>
                     {currentUser &&
-                        <nav className="navbar navbar-expand navbar-dark bg-dark">
+                        <nav className="navbar navbar-expand navbar-dark bg-dark" style={{height:'30px'}}>
                             <div className="navbar-nav">
                                 <Link to="/" className="nav-item nav-link">Home</Link>
                                 <a onClick={this.logout} className="nav-item nav-link">Logout</a>
