@@ -90,7 +90,7 @@ class Main extends Component {
 			return (
 				<div style={{backgroundColor:'#252E35',}}>
 					{/* segment is to define map and its style outside the grid */}
-					<Segment style={{background:'#252E35', marginLeft:'230px', width:'65%',height:'400px', color:'white'}}>
+					<Segment style={{background:'#252E35', marginLeft:'230px', width:'65%',height:'385px', color:'white'}}>
 									<MapInteractionCSS
 										scale={scale}
 										translation={translation}
@@ -117,7 +117,7 @@ class Main extends Component {
 									</h2>
 											<br />
 											
-											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(-20px,-8px'}}>
+											<label style={{background:'noBackgound', color:'#53BBD6', fontSize:'25px',yAxis:'5px', transform:'translate(-20px,-8px', border:'#53BBD6 2px solid',paddingLeft:'10px',paddingRight:'10px'}}>
 												Manual
 									</label>
 											<Radio style={{fontSize:"25px",border:'#53BBD6 2px solid',borderRadius:'30px',height:'25px',width:'55px' }}
@@ -126,7 +126,7 @@ class Main extends Component {
 												checked={this.state.installationMode}
 												onChange={() => this.toggleInstallationMode()}
 											></Radio>
-											<label style={{background:'noBackgound', color:'white', fontSize:'25px',yAxis:'5px', transform:'translate(15px,-10px'}} >
+											<label style={{background:'noBackgound', color:'#53BBD6', fontSize:'25px',yAxis:'5px', transform:'translate(15px,-10px', border:'#53BBD6 2px solid',paddingLeft:'10px',paddingRight:'10px'}} >
 												Automatic
 									</label>
 										
@@ -134,22 +134,52 @@ class Main extends Component {
 										
 								</Segment>
 								
+								{/* <Container textAlign="center">
+									<Label color="blue" size="massive" pointing="below" basic >
+										Battery Data
+								</Label>
+								</Container> */}
+								<Container textAlign='center'>
+									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'80px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'45%', height:'50px' }}>
+										Battery Status: {this.state.SOC}
+								</Label>
+								{/* <br/> */}
+									{/* <br />
+									<br />
+									<Label size='big' basic>
+										OverVoltage Fault: {this.state.overvoltageFault}
+								</Label>
+									<Label size='big' basic>
+										UnderVoltage Fault: {this.state.undervoltageFault}
+								</Label>
+									<br />
+									<br />
+									<Label size='big' basic>
+										Battery Balancing: {this.state.batteryBalancing}
+								</Label> */}
+									<Button style={{backgroundColor:'#252E35',marginLeft:'210px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', width:'20%',padding:'0', height:'30px', marginTop:'15px' }}
+									
+									onClick={() => {
+										
+										history.push('/battery'); console.log("Checking Battery");
+									}}>
+										More Info
+								</Button>
+								</Container>
+							
+								
 								
 							{/* </Grid.Row> */}
 						</Grid.Column>
 						
 						
 						<Grid.Column width={4}>
-							<Segment raised>
-								<Container textAlign="center">
-									<Label color="red" size='massive' pointing="below" basic>
-										EMERGENCY BUTTON
-								</Label>
-									<br />
+							
 									<Button
-										color="red"
+										inverted color="red"
 										toggle
 										size="big"
+										style={{marginLeft:'25%', marginTop:'20%'}}
 										onClick={function () {
 											// Publishing a Topic
 											// ------------------
@@ -182,10 +212,9 @@ class Main extends Component {
 											cmdVel1.publish(twist);
 
 										}}
-									>STOP
+									>Emergency Stop
 								</Button>
-								</Container>
-							</Segment>
+								
 							<Segment raised>
 								<Container textAlign="center">
 									<Label color="blue" size="massive" pointing="below" basic>
@@ -204,58 +233,8 @@ class Main extends Component {
 
 								</Container>
 							</Segment>
-							<Segment raised>
-								<Container textAlign="center">
-									<Label color="blue" size="massive" pointing="below" basic >
-										Battery Data
-								</Label>
-								</Container>
-								<Container textAlign='center'>
-									<Label size='big' basic>
-										State Of Charge: {this.state.SOC}
-								</Label>
-									<br />
-									<br />
-									<Label size='big' basic>
-										OverVoltage Fault: {this.state.overvoltageFault}
-								</Label>
-									<Label size='big' basic>
-										UnderVoltage Fault: {this.state.undervoltageFault}
-								</Label>
-									<br />
-									<br />
-									<Label size='big' basic>
-										Battery Balancing: {this.state.batteryBalancing}
-								</Label>
-									<Button onClick={() => {
-										history.push('/battery'); console.log("Checking Battery");
-									}}>
-										More Info
-								</Button>
-								</Container>
-							</Segment>
-							<Segment raised>
-								<Container textAlign="center">
-									<Label color="blue" size="massive" pointing="below" basic>
-										Circuit Faults
-								</Label>
-								</Container>
-								<Container textAlign='center'>
-									<Label size='big' basic>
-										Overcurrent Fault(s): {this.state.overcurrentFault}
-								</Label>
-									<br />
-									<br />
-									<Label size='big' basic>
-										Connection Status:
-								</Label>
-									<Button onClick={() => {
-										history.push('/circuit'); console.log("Checking Circuit");
-									}}>
-										More Info
-								</Button>
-								</Container>
-							</Segment>
+							
+							
 						</Grid.Column>
 						<Grid.Column width={6}>
 						<Segment style={{backgroundColor:'#1C2127',marginRight:'80px', border:'#53BBD6 2px solid', width:'85%', textAlign:'center',floated:'right', height:'150px'}} >
@@ -471,28 +450,34 @@ class Main extends Component {
 												<br />
 											</Container>
 							</Segment>
+							
+								{/* <Container textAlign="center"> */}
+									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'10px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'45%', height:'50px' }} >
+										Circuit Faults : Nill
+									</Label>
+									<br/>
+								{/* </Container>
+								<Container textAlign='center'>
+									<Label size='big' basic>
+										Overcurrent Fault(s): {this.state.overcurrentFault}
+								</Label>
+									<br />
+									<br />
+									<Label size='big' basic>
+										Connection Status:
+								</Label> */}
+									<Button style={{backgroundColor:'#252E35',marginLeft:'150px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', width:'20%',padding:'0', height:'30px', marginTop:'15px' }}
+									onClick={() => {
+										history.push('/circuit'); console.log("Checking Circuit");
+									}}>
+										More Info
+								</Button>
+								{/* </Container> */}
+						
 
 						</Grid.Column>
 					</Grid>
-					<Grid style={{color:'white'}} container spacing={2} columns={3}>
-					  <Grid.Column style={{background:'blue'}} item xs={8}>
-						  <Grid columns={3}>
-							  <Grid.Column>ee</Grid.Column>
-							  <Grid.Column>ee</Grid.Column>
-							  <Grid.Column>ee</Grid.Column>
-						  </Grid>
-					    xs=8
- 					 </Grid.Column>
-					  <Grid.Column item xs={4}>
- 					   xs=4
- 					 </Grid.Column>
- 					 <Grid.Column item xs={4}>
- 					   xs=4
- 					 </Grid.Column>
-					  <Grid.Column item xs={8}>
-					    xs=8
-					  </Grid.Column>
-					</Grid>
+					
 				</div>
 			);
 	}

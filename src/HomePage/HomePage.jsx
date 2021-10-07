@@ -19,8 +19,8 @@ class HomePage extends React.Component {
     render() {
         const { currentUser } = this.state;
         return (
-            <div>
-                <h1 style={{backgroundColor:'#252E35', color: 'white', textAlign : 'center'}}>Hi {currentUser.firstName}!</h1>
+            <div style={{backgroundColor:'#252E35', color: 'white', textAlign : 'center'}}>
+                <h1 style={{backgroundColor:'#1C2127', color: 'white', textAlign : 'center'}}>Hi {currentUser.firstName}!</h1>
                 <Main />
             </div>
         );
