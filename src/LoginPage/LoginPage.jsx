@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import { Grid, Segment, Image,Item } from 'semantic-ui-react';
+import { Grid, Segment, Image } from 'semantic-ui-react';
 import { authenticationService } from '../_services';
 import img1 from './Capture.PNG';
 // import './loginPage.css';
@@ -23,7 +23,7 @@ class LoginPage extends React.Component {
         return (
             <div style={{backgroundColor:'#252E35',}}>
                 <div style={{backgroundColor: '#1C2127',borderRadius:'0px', height:'60px'}}> 
-                  <h1 style={{color:'white',textAlign:'center', margin:'auto'}}>Login</h1>
+                  <h1 style={{textAlign:'center', margin:'auto',color:'#53BBD6'}}>Login</h1>
                   
                 </div>
                 
@@ -73,14 +73,6 @@ class LoginPage extends React.Component {
                                     {status &&
                                         <div className={'alert alert-primary'}>{status}</div>
                                     }
-                                    <Grid container spacing={2}>
-                                    <Grid item xs={8}>
-                                        <Item>xs=8</Item>
-                                    </Grid>
-                                    <Grid item xs={4}>
-                                      <Item>xs=4</Item>
-                                    </Grid>
-                                    </Grid>
                                 </Form>
                                 
                             )}

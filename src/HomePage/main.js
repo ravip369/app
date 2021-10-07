@@ -140,7 +140,7 @@ class Main extends Component {
 								</Label>
 								</Container> */}
 								<Container textAlign='center'>
-									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'80px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'50%', height:'50px' }}>
+									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'80px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'260px', height:'50px' }}>
 										Battery Status: {this.state.SOC} %
 								</Label>
 								{/* <br/> */}
@@ -448,7 +448,7 @@ class Main extends Component {
 							</Segment>
 							
 								{/* <Container textAlign="center"> */}
-									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'10px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'45%', height:'50px' }} >
+									<Label size='big' basic style={{backgroundColor:'#252E35',marginLeft:'10px', border:'#53BBD6 2px solid',  textAlign:'center', color:'#53BBD6', fontSize:'1.7rem', width:'250px', height:'50px' }} >
 										Circuit Faults : Nill
 									</Label>
 									<br/>
