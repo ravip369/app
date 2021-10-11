@@ -18,8 +18,17 @@ class LoginPage extends React.Component {
             this.props.history.push('/');
         }
     }
+    state = {
+        isPasswordShown: false
+      };
+    
+    togglePasswordVisiblity = () => {
+        const { isPasswordShown } = this.state;
+        this.setState({ isPasswordShown: !isPasswordShown });
+      };
 
     render() {
+        const { isPasswordShown } = this.state;
         return (
             <div style={{backgroundColor:'#252E35',}}>
                 <div style={{backgroundColor: '#1C2127',borderRadius:'0px', height:'60px'}}> 
@@ -63,6 +72,10 @@ class LoginPage extends React.Component {
                                         <label htmlFor="password"style={{color:'white'}}>Password</label>
                                         <Field style={{ width: "400px",backgroundColor:'#252E35',border:'2px solid #53BBD6',borderRadius:'4px', backgroundColor:'transparent' }} name="password" type="password" className={'form-control' + (errors.password && touched.password ? ' is-invalid' : '')} />
                                         <ErrorMessage name="password" component="div" className="invalid-feedback" />
+                                        <i
+                                          className="fa fa-eye password-icon"
+                                          onClick={this.togglePasswordVisiblity}
+                  />
                                     </div>
                                     <div className="form-group">
                                         <button style={{color:'#53BBD6',border:'2px solid #53BBD6',backgroundColor:'#252E35',borderRadius:'6px',padding:'4px 20px',marginTop:'25px',}} type="submit" className=" " disabled={isSubmitting}>Login</button>
